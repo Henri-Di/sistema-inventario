@@ -1,0 +1,127 @@
+/* Reset de margin e padding para todos os elementos */
+* {
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove padding padrão */
+  box-sizing: border-box; /* Inclui padding e borda na largura total e altura do elemento */
+}
+
+/* Estilo de fundo para o corpo da página */
+body {
+  background-color: rgba(255, 255, 255, 0.3); /* cor de fundo com opacidade */
+  text-align: center; /* Centraliza o texto */
+  position: relative; /* Necessário para o uso do pseudo-elemento */
+  z-index: 1; /* Garante que o conteúdo esteja na frente */
+  min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da viewport */
+}
+
+/* Pseudo-elemento para a imagem de fundo */
+body::before {
+  content: ''; /* Cria um elemento vazio */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta */
+  top: 0; /* Alinha ao topo da página */
+  left: 0; /* Alinha à esquerda da página */
+  width: 100%; /* Ocupa toda a largura da página */
+  height: 100%; /* Ocupa toda a altura da página */
+  background-image: url('../Images/Caixa2.png'); /* Caminho da imagem de fundo */
+  background-size: 55%; /* Ajuste a porcentagem para reduzir a proporção da imagem */
+  background-position: left; /* Posiciona a imagem à esquerda */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  opacity: 0.9; /* Define a opacidade da imagem de fundo */
+  z-index: -1; /* Coloca a imagem atrás do conteúdo do body */
+  pointer-events: none; /* Garante que a imagem de fundo não interfira com eventos de clique */
+}
+
+/* Estilo para o logo da página */
+#logo-blue {
+  color: #005ce6; /* Cor do texto */
+  font-size: 3rem; /* Tamanho da fonte responsivo */
+  font-weight: bold; /* Negrito */
+  text-align: center; /* Centraliza o texto */
+  margin: 35px 0; /* Margem superior e inferior */
+}
+
+/* Estilo para o ícone do logo da página */
+#blue-icon-logo {
+  color: #005ce6; /* Cor do texto */
+  font-size: 2rem; /* Tamanho da fonte responsivo */
+  margin-left: 5px; /* Espaçamento à esquerda */
+}
+
+/* Container */
+#blue-container-login {
+  display: flex; /* Define um layout flexível */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  min-height: 100vh; /* Garante que o container ocupe pelo menos 100% da altura da viewport */
+}
+
+/* Wrapper para centralizar os elementos */
+.login-wrapper {
+  display: flex; /* Define um layout flexível */
+  width: 40%; /* Define a largura como 40% do container pai */
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  padding: 20px; /* Adiciona padding ao redor do conteúdo */
+  background-color: rgba(255, 255, 255, 0.6); /* Fundo semitransparente para melhor contraste */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+/* Estilo para todas as imagens */
+img {
+  max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  image-rendering: -webkit-optimize-contrast; /* Melhora o contraste em navegadores WebKit */
+  object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+}
+
+/* Logo */
+.logo {
+  max-width: 50px; /* Define a largura máxima do logo */
+  margin-top: -60px; /* Margem superior negativa para sobrepor */
+}
+
+/* Formulário */
+#blue-form-login {
+  width: 100%; /* Define a largura como 100% do container pai */
+  max-width: 400px; /* Define a largura máxima como 400px */
+  display: flex; /* Define um layout flexível */
+  flex-direction: column; /* Organiza os itens em coluna */
+}
+
+/* Inputs do formulário */
+#blue-input-login {
+  width: 70%; /* Define a largura como 70% do container pai */
+  padding: 5px; /* Adiciona padding interno */
+  font-weight: bold;
+  color: #33334d; /* Define a cor do texto */
+  outline-color: #005ce6; /* Cor do contorno ao focar */
+  border: 1px solid #ced4da; /* Borda sólida */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Botão de login */
+#blue-btn-login {
+  padding: 1px; /* Padding interno */
+  width: 70%; /* Define a largura como 70% do container pai */
+  background-color: transparent; /* Fundo transparente */
+  outline-color: #005ce6;
+  color: #005ce6; /* Cor do texto */
+  position: static;
+  border: none; /* Remove borda padrão */
+  display: block; /* Exibe como bloco */
+  margin-left: 60px; /* Margem à esquerda */
+  font-weight: bold; /* Negrito */
+  border: 1px solid #005ce6; /* Borda sólida */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
+  transition: background-color ease 0.5s; /* Transição suave para a cor de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do elemento */
+}
+
+#blue-btn-login:hover {
+  background-color: #005ce6; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+  opacity: 0.7; /* Define a opacidade ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do elemento */
+}

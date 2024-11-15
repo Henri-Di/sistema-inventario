@@ -1,0 +1,1095 @@
+/* Reset de margin e padding */
+* {
+  margin: 0; /* Remove as margens de todos os elementos */
+  padding: 0; /* Remove os espaçamentos internos de todos os elementos */
+  font-family: 'Sofia Sans Extra Condensed'; /* Define a fonte padrão */
+  box-sizing: border-box; /* Inclui padding e border no tamanho total dos elementos */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #005ce6; /* Define a cor do fundo da trilha do scrollbar */
+}
+::-webkit-scrollbar {
+  width: 3px; /* Define a largura do scrollbar vertical */
+  height: 3px; /* Define a altura do scrollbar horizontal */
+  background: #005ce6; /* Define a cor do fundo do scrollbar */
+  opacity: 0.7; /* Define a opacidade do scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background: #005ce6; /* Define a cor da "thumb" do scrollbar (a parte que se move) */
+  opacity: 0.7; /* Define a opacidade da "thumb" do scrollbar */
+}
+
+/* Estilo de fundo para o corpo da página */
+body {
+  background-color: rgba(255, 255, 255, 0.1); /* cor de fundo com opacidade */
+}
+
+/* Estilo de fundo para um menu lateral escondido em telas pequenas */
+#blue-sidenav-hidden-xs {
+  background-color: transparent;
+}
+
+/* Estilo para um container principal, ajustando margem superior e fundo */
+#blue-col-sm-9 {
+  margin-top: -20px;
+  background-color: transparent;
+}
+
+/* Estilos para tornar a página responsiva */
+@media (max-width: 768px) {
+  /* Esconder o menu lateral em telas pequenas */
+  #blue-sidenav-hidden-xs {
+    display: none;
+  }
+  
+  /* Ajustar largura do container principal em telas pequenas */
+  #blue-col-sm-9 {
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin-top: 0; /* Remove a margem superior */
+  }
+}
+
+#row-content {
+  position: relative;
+  z-index: 0;
+  image-rendering: -webkit-optimize-contrast; /* Melhora o contraste em navegadores WebKit */
+  object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+  padding-bottom: 895px; /* Adiciona espaço extra para mover a imagem para baixo */
+}
+
+#row-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2%; /* Começa do canto esquerdo da tela */
+  width: 100%; /* Cobrir toda a largura da tela */
+  height: 100%;
+  border-radius: 5px;
+  background-image: url('../../Images/ImageMenu6.jpg');
+  background-size: 50vw; /* Utilizando vw para dimensionamento responsivo */
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #row-content::before {
+    width: 100%; /* Ajusta para cobrir toda a largura em telas menores */
+  }
+}
+
+.well {
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semitransparente para melhor contraste */
+  border: none; /* Remove a borda */
+  cursor: context-menu; /* Cursor de contexto */
+  text-align: center; /* Centraliza o texto */
+  position: relative; /* Necessário para o uso do pseudo-elemento */
+  z-index: 1; /* Garante que o conteúdo esteja na frente */
+  margin-top: 3%;
+  image-rendering: -webkit-optimize-contrast; /* Melhora o contraste em navegadores WebKit */
+  object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+  padding-bottom: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+.well::before {
+  content: '';
+  position: absolute;
+  top: 5%; /* Move a imagem para o centro vertical */
+  left: 50%; /* Move a imagem para o centro horizontal */
+  transform: translate(-50%, -50%); /* Ajusta para centralizar a imagem */
+  width: 100%;
+  height: 100%;
+  background-image: url('../../Images/Caixa.png'); /* Substitua pelo caminho da sua imagem */
+  background-size: 14%; /* Ajuste a porcentagem para reduzir a proporção da imagem */
+  background-position: center; /* Alinha a imagem ao centro */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  opacity: 1.0; /* Ajuste o valor para conseguir o efeito de opacidade desejado */
+  z-index: -1; /* Coloca a imagem atrás do conteúdo do .well */
+  pointer-events: none; /* Garante que a imagem de fundo não interfira com eventos de clique */
+  mix-blend-mode: multiply; /* Define o modo de mistura */
+}
+
+@media (max-width: 768px) {
+  #row-well::before {
+    width: 100%; /* Ajusta para cobrir toda a largura em telas menores */
+  }
+}
+
+/* Estilo do ícone de carregamento */
+#loader {
+  position: absolute; /* Posição absoluta em relação ao container pai */
+  left: 50%; /* Centraliza horizontalmente */
+  top: 50%; /* Centraliza verticalmente */
+  z-index: 1; /* Garante que o loader fique acima de outros elementos */
+  width: 30px; /* Define a largura do loader */
+  height: 30px; /* Define a altura do loader */
+  margin: -40px 0 0 120px; /* Ajuste fino de posicionamento */
+  border: 5px solid #f2f2f2; /* Borda externa do loader */
+  border-radius: 50%; /* Arredonda as bordas para formar um círculo */
+  border-top: 5px solid #005ce6; /* Cor da borda superior do loader */
+  animation: spin 1s linear infinite; /* Animação de rotação */
+}
+
+/* Animação de rotação para o ícone */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efeito de aparecimento para elementos com classe 'animate-bottom' */
+.animate-bottom {
+  position: relative; /* Posição relativa em relação ao container pai */
+  animation: animatebottom 0.1s; /* Aplica animação de aparecimento */
+}
+
+/* Animação para elementos com classe 'animate-bottom' */
+@keyframes animatebottom {
+  from { bottom: -100px; opacity: 0; } /* Posição inicial fora da tela e transparente */
+  to { bottom: 0px; opacity: 1; } /* Posição final na tela e opaca */
+}
+
+/* Estilo para o logo da página */
+#logo-blue {
+  color: #005ce6; /* Cor do texto */
+  font-size: 3rem; /* Tamanho da fonte responsivo */
+  font-weight: bold; /* Negrito */
+  text-align: center; /* Centraliza o texto */
+  margin: 15px 0; /* Margem superior e inferior */
+}
+
+/* Estilo para o ícone do logo da página */
+#blue-icon-logo {
+  color: #005ce6; /* Cor do texto */
+  font-size: 2.5rem; /* Tamanho da fonte responsivo */
+  margin-left: 5px; /* Espaçamento à esquerda */
+}
+
+/* Estilo para o subtítulo da página */
+#blue-sub-title-page {
+  font-size: 16px; /* Tamanho da fonte */
+  color: #005ce6; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para os links da barra de navegação */
+#menu-blue {
+  background-color: #f0f0f5; /* Fundo transparente */
+  color: #005ce6; /* Cor do texto */
+  width: 85.5%; /* Largura do link */
+  height: auto;
+  padding: 10px;
+  font-weight: bold; /* Negrito */
+  font-size: 14px; /* Tamanho da fonte */
+  border: 1px linear #005ce6; /* Borda ao redor do link */
+  text-align: left center; /* Centraliza o texto */
+  border: 1px solid #005ce6;
+  display: inline-block;
+  margin-left: 5%; /* Espaçamento à esquerda */
+  overflow: hidden;
+  transition: background-color ease 0.7s; /* Transição suave para a cor de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao redor do elemento */
+}
+
+/* Efeito hover para os links da barra de navegação */
+#menu-blue:hover {
+  background-color: #005ce6; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+  font-weight: bold; /* Negrito */
+  opacity: 0.8; /* Transparência ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+/* Estilo para os itens de lista da barra de navegação */
+#list-blue {
+  background-color: transparent; /* Fundo transparente */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: background-color ease 0.5s; /* Transição suave para a cor de fundo */
+}
+
+/* Efeito hover para os itens de lista da barra de navegação */
+#list-blue:hover {
+  background-color: transparent; /* Cor de fundo ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  #menu-blue {
+    width: 90%; /* Ajusta a largura do link */
+    margin-left: 2%; /* Ajusta o espaçamento à esquerda */
+    font-size: 13px; /* Ajusta o tamanho da fonte */
+    border-width: 1px; /* Ajusta a largura da borda */
+    padding: 8px; /* Ajusta o padding */
+  }
+
+  #menu-blue:hover {
+    font-size: 13px; /* Ajusta o tamanho da fonte ao passar o mouse */
+  }
+
+  #list-blue {
+    padding: 8px 0; /* Ajusta o padding dos itens da lista */
+  }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 480px) {
+  #menu-blue {
+    width: 95%; /* Ajusta a largura do link */
+    margin-left: 2.5%; /* Ajusta o espaçamento à esquerda */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    padding: 6px; /* Ajusta o padding */
+  }
+}
+
+
+/* Estilo para todas as imagens */
+img {
+  max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  image-rendering: -webkit-optimize-contrast; /* Melhora o contraste em navegadores WebKit */
+  object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+}
+
+/* Contêiner para a logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px; /* Ajusta a margem superior para posicionamento */
+}
+
+/* Estilo para a logo */
+.logo {
+  max-width: 18%; /* Define a largura máxima para a logo dentro do contêiner */
+  height: auto; /* Mantém a altura proporcional à largura */
+  filter: brightness(1.1) contrast(1.1); /* Ajusta brilho e contraste */
+}
+
+
+#blue-input-cdst-alert {
+  width: 100%; /* Define a largura como 100% do contêiner */
+  background-color: transparent; /* Define o fundo como transparente */
+  outline: none; /* Remove a borda de foco padrão */
+  color: #33334d; /* Define a cor do texto */
+  text-align: center; /* Centraliza o texto */
+  font-size: 9.5px; /* Ajuste o tamanho da fonte para dispositivos móveis */
+  font-weight: bold; /* Define a fonte como negrito */
+  border: 1px solid; /* Define a borda */
+  margin-top: 1%; /* Adiciona uma margem superior de 1% */
+  border-top-color: transparent; /* Remove a cor da borda superior */
+  border-left-color: transparent; /* Remove a cor da borda esquerda */
+  border-right-color: transparent; /* Remove a cor da borda direita */
+  border-bottom-color: #ff6600; /* Define a cor da borda inferior como laranja para alerta */
+
+  /* Ajustes para dispositivos móveis */
+  padding: 5px; /* Adiciona preenchimento interno */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+}
+
+/* Media query para ajustes em dispositivos móveis */
+@media (max-width: 768px) {
+  #blue-input-cdst-alert {
+    font-size: 12px; /* Reduz o tamanho da fonte para telas menores */
+    margin-top: 0.5rem; /* Reduz a margem superior para telas menores */
+  }
+}
+
+  /* Estilo para o título de alerta no painel */
+  #blue-title-btn-painel-alert {
+    text-align: left; /* Alinhamento à esquerda */
+    color: #ff6600; /* Cor do texto */
+    font-weight: bold;
+    font-size: 14px; /* Tamanho da fonte */
+  }
+  
+
+/* Estilo para o título de listagem */
+#blue-title-listar-alert {
+  padding: 3px;
+  background-color: #f0f0f5; /* Define a cor de fundo  */
+  color: #33334d; /* Cor do texto */
+  font-size: 12px; /* Tamanho da fonte */
+  text-wrap: wrap;
+  font-weight: bold; /* Texto em negrito */
+  border: 1px solid #ff6600; /* Borda sólida */
+  text-align: center; /* Alinhamento central do texto */
+}
+  
+
+/* Estilo para a linha das tabelas de formulários */
+#line-blue-table-alert {
+  border: 1px solid #ff6600; /* Borda sólida */
+  cursor: pointer; /* Cursor de ponteiro */
+}
+
+/* Estilo para a coluna das tabelas de formulários */
+#colun-blue-table-alert {
+  border: 1px solid #ff6600; /* Borda sólida */
+}
+
+/* Estilo para o título de botão de alerta no painel */
+#blue-title-btn-painel-alert {
+  text-align: left; /* Alinhamento à esquerda */
+  color: #ff6600; /* Cor do texto */
+  font-size: 13px; /* Tamanho da fonte */
+}
+
+/* Estilo para a linha simulada abaixo do título de botão de alerta no painel */
+#blue-line-title-btn-painel-alert {
+  border-bottom: 1px solid #ff6600; /* Linha sólida laranja abaixo do título */
+}
+
+  /* Estilo para o título de botão no painel */
+  #blue-title-btn-painel {
+    text-align: left; /* Alinhamento à esquerda */
+    color: #005ce6; /* Cor do texto */
+    font-weight: bold;
+    font-size: 14px; /* Tamanho da fonte */
+  }
+
+/* Estilo para a linha das tabelas com efeito de hover */
+#line-blue-table-hover {
+  border: 0.5px solid #666699; /* Borda sólida mais fina */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color ease 0.5s; /* Transição suave de cor de fundo */
+}
+  
+/* Efeito hover para a linha das tabelas com efeito de hover */
+#line-blue-table-hover:hover {
+  background-color: #b3d9ff; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o contêiner da tabela auxiliar de cadastro */
+#blue-table-cadastro-auxiliar {
+  width: 100%; /* Largura total */
+  margin-top: -1%; /* Margem superior */
+  table-layout: fixed; /* Ajustar a largura das células fixa */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+#blue-table-cadastro-auxiliar td {
+  padding:6px; /* Espaçamento interno */
+  text-overflow: ellipsis; /* Adicionar elipses (...) para textos longos */
+  white-space: nowrap; /* Não quebrar linhas */
+}
+
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 1200px) {
+  #blue-table-cadastro-auxiliar {
+    table-layout: fixed; /* Fixar a largura das células */
+  }
+  #blue-table-cadastro-auxiliar td {
+    width: 100%; /* Largura fixa para cada célula em telas menores */
+  }
+}
+
+@media (max-width: 992px) {
+  #blue-table-cadastro-auxiliar td {
+    width: 100%; /* Largura total para cada célula em telas pequenas */
+    display: block; /* Exibir cada célula como bloco */
+  }
+}
+
+@media (max-width: 768px) {
+  #blue-table-cadastro-auxiliar td {
+    width: 100%; /* Largura total para cada célula em telas muito pequenas */
+    display: block; /* Exibir cada célula como bloco */
+    padding: 5px; /* Espaçamento interno menor */
+  }
+}
+
+@media (max-width: 576px) {
+  #blue-table-cadastro-auxiliar td {
+    width: 100%; /* Largura total para cada célula em telas muito pequenas */
+    display: block; /* Exibir cada célula como bloco */
+    padding: 5px; /* Espaçamento interno menor */
+    font-size: 12px; /* Tamanho de fonte menor */
+  }
+}
+
+/* Estilo para o botão de relatório auxiliar */
+#blue-btn-relatorio-auxiliar {
+  width: 13%; /* Largura do botão */
+  height: auto; /* Altura automática */
+  padding: 5px;
+  color:#005ce6;
+  font-size: 12px; /* Tamanho da fonte reduzido */
+  font-weight: bold;
+  background-color: #f0f0f5; /* Cor do fundo do texto */
+  opacity: 0.8;
+  outline: none; /* Sem contorno ao focar */
+  margin-left: 1%; /* Margem à esquerda entre os botões */
+  border-radius: 3px; /* Borda arredondada */
+  border: 1px solid #005ce6; /* Borda sólida azul */
+  font-size: 11px; /* Tamanho da fonte */
+  transition: background-color ease 0.5s; /* Transição suave de cor de fundo */
+  flex: 1; /* Ocupa espaço igualmente dentro do container flexível */
+  max-width: 18%; /* Largura máxima para garantir que 5 botões caibam na mesma linha */
+  text-align: center; /* Centralizar texto */
+  margin-top: 1.5%; /*  Ajuste de margem superior */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+/* Efeito hover para o botão de relatório auxiliar */
+#blue-btn-relatorio-auxiliar:hover {
+  background-color: #005ce6; /* Cor de fundo azul ao passar o mouse */
+  color: #f0f0f0; /* Cor do texto branco */
+  opacity: 0.7; /* Opacidade reduzida */
+}
+
+/* Estilo para a linha das tabelas de formulários */
+#line-blue-table {
+  border: 1px solid #666699; /* Borda sólida */
+}
+
+/* Estilo para a coluna das tabelas de formulários */
+#colun-blue-table {
+  border: 1px solid #666699; /* Borda sólida */
+}
+
+/* Estilo para o título de listagem */
+#blue-title-listar {
+  background-color: #f0f0f5; /* Cor do fundo do texto */
+  padding: 2px;
+  color: #33334d; /* Cor do texto */
+  font-size: 12px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  margin-top: 0.5px; /* Margem superior */
+  border: 1px solid #005ce6; /* Borda sólida */
+  text-align: center; /* Alinhamento central do texto */
+}
+
+/* Estilo para campos de entrada nos formulários */
+#blue-input-cdst {
+  width: 100%; /* Define a largura como 100% do contêiner */
+  background-color: transparent; /* Define o fundo como transparente */
+  outline: none; /* Remove a borda de foco padrão */
+  color: #33334d; /* Define a cor do texto */
+  text-align: center; /* Centraliza o texto */
+  font-size: 11px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+  border: 1px solid; /* Define a borda */
+  margin-top: 1%; /* Adiciona uma margem superior de 1% */
+  border-top-color: transparent; /* Remove a cor da borda superior */
+  border-left-color: transparent; /* Remove a cor da borda esquerda */
+  border-right-color: transparent; /* Remove a cor da borda direita */
+  border-bottom-color: #666699; /* Define a cor da borda inferior */
+}
+
+/* Estilo para o botão de cadastro auxiliar */
+#blue-btn-cadastro-auxiliar {
+  background-color: #f0f0f5; /* Fundo transparente */
+  padding: 2px;
+  width: 100%; /* Largura total */
+  height: auto; /* Altura automática */
+  color: #005ce6; /* Cor do texto */
+  font-size: 11px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  margin-top: 5%; /* Margem superior */
+  border-radius: 3px; /* Borda arredondada */
+  border: 1px solid #005ce6; /* Borda sólida azul */
+  transition: background-color ease 0.5s; /* Transição suave de cor de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao redor do elemento */
+}
+  
+/* Efeito hover para o botão de cadastro auxiliar */
+#blue-btn-cadastro-auxiliar:hover {
+  background-color: #005ce6; /* Cor de fundo azul ao passar o mouse */
+  color: #ffffff; /* Cor do texto branco */
+  opacity: 0.7; /* Opacidade reduzida */
+}
+
+/* Estilo para selects nos formulários */
+#select-form {
+  width: 100%; /* Define a largura como 100% do contêiner */
+  outline: none; /* Remove a borda de foco padrão */
+  cursor: pointer; /* Define o cursor como pointer */
+  color: #33334d; /* Define a cor do texto */
+  text-rendering: unset;
+  font-size: 10px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+  border: 1px solid #666699; /* Define a borda */
+  margin-top: 1%; /* Adiciona uma margem superior de 1% */
+  text-align: center; /* Centraliza o texto */
+  background-color: transparent; /* Define o fundo como transparente */
+  transition: background-color ease 0.5s; /* Transição suave para a cor de fundo */
+}
+
+  /* Estilo para o botão de tabela de cadastro de produto */
+  #blue-btn-table-cadastro-produto {
+    background-color: #f0f0f5; /* Cor do fundo do texto */
+    width: 20%; /* Largura */
+    padding: 3px;
+    color: #005ce6; /* Cor do texto */
+    font-size: 13px; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    border-radius: 3px; /* Borda arredondada */
+    border: 1px solid #005ce6; /* Borda sólida azul */
+    transition: background-color ease 0.5s; /* Transição suave de cor de fundo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+  }
+  
+  /* Efeito hover para o botão de tabela de cadastro de produto */
+  #blue-btn-table-cadastro-produto:hover {
+    background-color: #005ce6; /* Cor de fundo azul ao passar o mouse */
+    color: #ffffff; /* Cor do texto branco */
+    opacity: 0.7; /* Opacidade reduzida */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do elemento */
+  }
+
+  /* Estilo para o container 'Upload' */
+#blue-icon-upload {
+  margin-left: 30%; /* Margem à esquerda para posicionar o ícone */
+}
+
+  /* Estilo para o contêiner que envolve o campo de arquivo */
+  .custom-file-upload {
+    display: inline-block; /* Exibe como bloco inline para alinhar com o conteúdo adjacente */
+    position: relative; /* Define a posição como relativa para facilitar o posicionamento do input[type="file"] */
+    font-family: 'Sofia Sans Extra Condensed'; /* Define a fonte para o texto do botão */
+    overflow: hidden; /* Esconde qualquer conteúdo que exceda os limites do contêiner */
+    margin-top: 5px; /* Margem superior para espaçamento */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  }
+  
+  /* Estilo para o input[type="file"] dentro do contêiner de upload */
+  .custom-file-upload input[type="file"] {
+    position: absolute; /* Define a posição absoluta para sobrepor o botão personalizado */
+    font-size: 100px; /* Tamanho grande para cobrir todo o botão personalizado */
+    right: 0; /* Alinha o input à direita do contêiner */
+    top: 0; /* Alinha o input ao topo do contêiner */
+    opacity: 0; /* Torna o input invisível */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  }
+  
+  /* Estilo para o botão personalizado dentro do contêiner de upload */
+  .custom-file-upload span {
+    display: inline-block; /* Exibe como bloco inline para ajustar ao conteúdo */
+    background-color: transparent; /* Cor de fundo transparente */
+    color: #005ce6; /* Cor do texto azul */
+    border: none; /* Remove a borda */
+    padding: 0px 0px; /* Preenchimento interno */
+    border-radius: 0px; /* Borda arredondada */
+    font-size: 10px; /* Tamanho da fonte */
+    margin-left:7px; /* Define a margin esquerda do elemento */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: color ease 0.5s; /* Transição suave de cor */
+  }
+  
+  /* Estilo para o botão personalizado dentro do contêiner de upload ao passar o mouse */
+  .custom-file-upload span:hover {
+    background-color: #666699; /* Cor de fundo mais escura ao passar o cursor */
+  }
+
+/* Estilo para o botão de logout */
+#blue-btn-sign-out {
+  width: 0%; /* Largura */
+  height: auto; /* Altura automática */
+  padding:0;
+  float: right; /* Alinhamento à direita */
+  background-color: transparent; /* Fundo transparente */
+  border: none; /* Sem borda */
+  outline: none; /* Sem contorno ao focar */
+  color: #005ce6; /* Cor do texto */
+  font-size: 14px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  transition: color ease 0.5s; /* Transição suave de cor */
+}
+
+/* Efeito hover para o botão de logout */
+#blue-btn-sign-out:hover {
+  color: #ff0000; /* Cor vermelha ao passar o mouse */
+  opacity: 0.7; /* Opacidade reduzida */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1200px) {
+  #blue-btn-sign-out {
+    width: 8%; /* Aumenta a largura em telas menores */
+    font-size: 12px; /* Diminui o tamanho da fonte */
+  }
+}
+
+@media (max-width: 992px) {
+  #blue-btn-sign-out {
+    width: 10%; /* Aumenta ainda mais a largura */
+    font-size: 10px; /* Diminui mais o tamanho da fonte */
+  }
+}
+
+@media (max-width: 768px) {
+  #blue-btn-sign-out {
+    width: 15%; /* Aumenta ainda mais a largura */
+    font-size: 8px; /* Diminui mais o tamanho da fonte */
+  }
+}
+
+@media (max-width: 576px) {
+  #blue-btn-sign-out {
+    width: 20%; /* Aumenta a largura para telas muito pequenas */
+    font-size: 6px; /* Diminui o tamanho da fonte para se ajustar */
+  }
+}
+
+/* Estilo para texto da sessão do usuário */
+#blue-text-session-user {
+  float: right; /* Alinha o elemento à direita */
+  font-weight: bold;
+  color:#005ce6;
+  font-size: 12px; /* Define o tamanho da fonte como 12 pixels */
+  margin-top: -2px; /* Aplica um deslocamento para cima de 2 pixels */
+  margin-right: 10px; /* Define uma margem direita de 10 pixels */
+}
+
+  /* Estilo para a linha simulada abaixo do título de botão da pagina acrescentar,dimiuir,sobrepor,reservar e etc */
+  #blue-line-title-btn-painel {
+    border-bottom: 1px solid #005ce6; /* Linha sólida azul abaixo do título */
+  }
+  
+  /* Estilo para o ícone dos botões da pagina acrescentar,dimiuir,sobrepor,reservar e etc */
+  #blue-icon-btn-painel {
+    font-size: 12px; /* Tamanho da fonte */
+  }
+
+/* Estilo para o botão 'Nova Senha' */
+#blue-button-nova-senha {
+  width: 20%; /* Largura do botão */
+  height: auto; /* Altura automática */
+  background-color:#f0f0f5;
+  color: #005ce6;
+  opacity: 0.8;
+  font-size: 12px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  margin-left: -40%; /* Margem à esquerda negativa para reposicionar */
+  margin-top: -1%; /* Margem superior negativa para reposicionar */
+  outline: none; /* Sem contorno ao focar */
+  border-radius: 3px; /* Borda arredondada */
+  border: 1px solid #005ce6; /* Borda sólida com cor */
+  transition: background-color ease 0.5s; /* Transição suave de cor de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do elemento */
+}
+
+/* Efeito hover para o botão 'Nova Senha' */
+#blue-button-nova-senha:hover {
+  background-color: #005ce6; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+  opacity: 0.7; /* Opacidade reduzida ao passar o mouse */
+}
+
+/* Estilo para o container dos botões */
+.blue-container-btn-auxiliar-blue {
+  display: flex; /* Container flexível */
+  justify-content: flex-start; /* Alinhamento à esquerda */
+  flex-wrap: wrap; /* Quebra de linha automática */
+  margin-left: -1%; /* Ajuste de margem esquerda */
+}
+
+/* Estilo para o botão de relatório auxiliar azul */
+#blue-btn-relatorio-auxiliar-blue {
+  width: 11%; /* Largura do botão */
+  height: auto; /* Altura automática */
+  padding: 5px;
+  color:#005ce6;
+  background-color: #f0f0f5; /* Cor do fundo do texto */
+  outline: none; /* Sem contorno ao focar */
+  margin: 0.5% 0.2%; /* Margem entre os botões (vertical horizontal) */
+  border-radius: 3px; /* Borda arredondada */
+  border: 1px solid #005ce6; /* Borda sólida azul */
+  font-weight: bold;
+  font-size: 11px; /* Tamanho da fonte reduzido */
+  transition: background-color ease 0.7s; /* Transição suave de cor de fundo */
+  flex: 1; /* Ocupa espaço igualmente dentro do container flexível */
+  max-width: 10%; /* Largura máxima para garantir que 9 botões caibam na mesma linha */
+  text-align: center; /* Centralizar texto */
+  margin-top: 1.5%; /*  Ajuste de margem superior */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+/* Efeito hover para o botão de relatório auxiliar azul */
+#blue-btn-relatorio-auxiliar-blue:hover {
+  background-color: #005ce6; /* Cor de fundo azul ao passar o mouse */
+  color: #ffffff; /* Cor do texto branco */
+  opacity: 0.7; /* Opacidade reduzida */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do elemento */
+}
+
+/* Container para pesquisa */
+#blue-search {
+  padding: 0; /* Remove o padding */
+  float: right; /* Flutua o container para a direita */
+  display: flex; /* Define o display como flex */
+  justify-content: flex-end; /* Alinha os itens ao final do contêiner */
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  width: 100%; /* Define a largura como 100% do contêiner */
+}
+
+/* Formulário de pesquisa */
+.example {
+  display: flex; /* Define o display como flex */
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  width: 100%; /* Define a largura como 100% do contêiner */
+  max-width: 600px; /* Define a largura máxima como 600px */
+}
+
+/* Campo de pesquisa */
+#input-blue-search {
+  width: 100%; /* Define a largura como 100% do contêiner */
+  height: 35px; /* Define a altura */
+  padding: 5px; /* Define o padding */
+  font-size: 14px; /* Define o tamanho da fonte */
+  color: #33334d; /* Define a cor do texto */
+  background-color: transparent; /* Define o fundo como transparente */
+  outline: none; /* Remove a borda de foco padrão */
+  border-top: none; /* Remove a borda superior */
+  border-left: none; /* Remove a borda esquerda */
+  border-right: none; /* Remove a borda direita */
+  border-bottom: 1px solid #005ce6; /* Define a borda inferior */
+  flex-grow: 1; /* Permite que o campo cresça para preencher o espaço disponível */
+}
+
+/* Ícone de pesquisa */
+#icon-search-blue {
+  width: 35px; /* Define a largura do ícone */
+  height: 35px; /* Define a altura do ícone */
+  font-size: 14px; /* Define o tamanho da fonte do ícone */
+  border-radius: 5px; /* Define bordas arredondadas */
+  background-color: transparent; /* Define o fundo como transparente */
+  border: none; /* Remove a borda */
+  color: #005ce6; /* Define a cor do ícone */
+  transition: background-color ease 0.5s; /* Transição suave para a cor de fundo */
+  display: flex; /* Define o display como flex */
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+
+/* Efeito hover para ícone de pesquisa */
+#icon-search-blue:hover {
+  background-color: #005ce6; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do ícone ao passar o mouse */
+  opacity: 0.7; /* Opacidade ao passar o mouse */
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+  #blue-search {
+    justify-content: center; /* Centraliza o container de pesquisa */
+  }
+
+  .example {
+    max-width: 100%; /* Largura máxima de 100% */
+  }
+
+  #input-blue-search {
+    font-size: 12px; /* Tamanho da fonte ainda menor */
+    height: 30px; /* Altura ainda menor */
+  }
+
+  #icon-search-blue {
+    font-size: 12px; /* Tamanho da fonte do ícone ainda menor */
+    width: 30px; /* Tamanho do ícone ainda menor */
+    height: 30px; /* Tamanho do ícone ainda menor */
+  }
+}
+
+@media (max-width: 576px) {
+  #input-blue-search {
+    font-size: 10px; /* Ajuste para dispositivos muito pequenos */
+    height: 25px; /* Ajuste para dispositivos muito pequenos */
+  }
+
+  #icon-search-blue {
+    font-size: 10px; /* Ajuste para dispositivos muito pequenos */
+    width: 25px; /* Ajuste para dispositivos muito pequenos */
+    height: 25px; /* Ajuste para dispositivos muito pequenos */
+  }
+}
+
+#blue-title-listar-exibicao {
+  background-color:#f0f0f5 /* Cor do fundo do texto */;
+  color: #33334d;
+  font-weight: bold;
+  border: 1px solid #005ce6;
+  font-size: 0.70em; /* Utilizando uma unidade relativa */
+  margin-top: 1%;
+  padding: 0.4em 0.3em; /* Ajustando o padding para manter a proporção */
+  border-radius: 5px;
+  text-align: center; /* Alinha o texto ao centro */
+  box-sizing: border-box; /* Inclui padding e borda na largura total */
+  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
+}
+
+@media (max-width: 768px) {
+  #blue-title-listar-exibicao {
+    font-size: 0.8em; /* Reduz o tamanho da fonte em telas menores */
+    padding: 0.3em 0.8em; /* Ajusta o padding para telas menores */
+  }
+}
+
+/* Estilo para o texto na tabela de exibição de listagem de materiais */
+#blue-text-table-exibicao {
+  color: #33334d; /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  text-rendering: unset;
+  text-align: center; /* Alinhamento central do texto */
+  font-size: 0.62em; /* Tamanho da fonte usando uma unidade relativa */
+  padding: 0.5em; /* Espaçamento interno para manter proporção */
+}
+
+@media (max-width: 768px) {
+  #blue-text-table-exibicao {
+    font-size: 0.9em; /* Reduz o tamanho da fonte em telas menores */
+    padding: 0.3em; /* Ajusta o espaçamento interno para telas menores */
+  }
+}
+
+/* Estilo para botão de configuração de dados */
+#blue-optios-config-dados {
+  background-color: transparent; /* Fundo transparente */
+  padding: 0; /* Sem padding */
+  border: none; /* Sem borda */
+  cursor: pointer; /* Cursor de ponteiro */
+  color: #005ce6; /* Cor do texto */
+  text-align: center; /* Alinhamento central */
+  font-weight: bold; /* Texto em negrito */
+  font-family: 'Sofia Sans Extra Condensed'; /* Fonte personalizada */
+  transition: color ease 0.7s; /* Transição suave para a cor */
+}
+  
+/* Estilo para o botão de acesso às funções na listagem de materiais */
+#blue-optios-config-dados:hover {
+  background-color: transparent; /* Fundo transparente */
+  color: #5c5c8a; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo para o ícone 'Relatório de Produto' */
+#blue-icon-relatorio-produto {
+  margin-top: 5px;/* Margem superior para posicionar o ícone */
+  font-size: 10px; /* Tamanho da fonte do ícone */
+}
+
+/* Estilo para o contêiner da tabela auxiliar de cadastro */
+#blue-table-cadastro-auxiliars {
+  width: 49%; /* Largura total */
+  margin-top: 1%; /* Margem superior */
+  margin-left: 1%;
+  float: left;
+  table-layout: fixed; /* Fixar a largura das células */
+}
+
+/* Estilo para as células da tabela */
+#blue-table-cadastro-auxiliars td {
+  padding: 5.5px; /* Espaçamento interno */
+  overflow: hidden; /* Esconder conteúdo excedente */
+  text-overflow: ellipsis; /* Adicionar elipses (...) para textos longos */
+  white-space: nowrap; /* Não quebrar linhas */
+}
+
+  /* Media Queries para dispositivos menores */
+  @media (max-width: 1200px) {
+    #blue-table-cadastro-auxiliars {
+      table-layout: fixed; /* Fixar a largura das células */
+    }
+    #blue-table-cadastro-auxiliars td {
+      width: 100%; /* Largura fixa para cada célula em telas menores */
+    }
+  }
+
+  @media (max-width: 992px) {
+    #blue-table-cadastro-auxiliars td {
+      width: 100%; /* Largura total para cada célula em telas pequenas */
+      display: block; /* Exibir cada célula como bloco */
+    }
+  }
+
+  @media (max-width: 768px) {
+    #blue-table-cadastro-auxiliars td {
+      width: 100%; /* Largura total para cada célula em telas muito pequenas */
+      display: block; /* Exibir cada célula como bloco */
+      padding: 5px; /* Espaçamento interno menor */
+    }
+  }
+
+  @media (max-width: 576px) {
+    #blue-table-cadastro-auxiliars td {
+      width: 100%; /* Largura total para cada célula em telas muito pequenas */
+      display: block; /* Exibir cada célula como bloco */
+      padding: 5px; /* Espaçamento interno menor */
+      font-size: 12px; /* Tamanho de fonte menor */
+    }
+  }
+
+/* Estilo para o contêiner da tabela auxiliar de cadastro */
+#blue-table-cadastro-auxiliar-print {
+  width: 100%; /* Largura total */
+  height: auto;
+  border: 1px solid #000000;
+  table-layout: auto; /* Permitir que a largura das células seja ajustada automaticamente */
+}
+
+/* Estilo para as células da tabela */
+#blue-table-cadastro-auxiliar-print td {
+  padding: 5px; /* Espaçamento interno */
+  overflow: hidden; /* Esconder conteúdo excedente */
+  text-overflow: ellipsis; /* Adicionar elipses (...) para textos longos */
+  white-space: nowrap; /* Não quebrar linhas */
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 1200px) {
+  #blue-table-cadastro-auxiliar-print {
+    table-layout: auto; /* Permitir que a largura das células seja ajustada automaticamente */
+  }
+  #blue-table-cadastro-auxiliar-print td {
+    width: auto; /* Largura automática para cada célula em telas menores */
+  }
+}
+
+@media (max-width: 992px) {
+  #blue-table-cadastro-auxiliar-print td {
+    width: auto; /* Largura automática para cada célula em telas pequenas */
+    display: table-cell; /* Exibir cada célula como célula de tabela */
+  }
+}
+
+@media (max-width: 768px) {
+  #blue-table-cadastro-auxiliar-print td {
+    width: auto; /* Largura automática para cada célula em telas muito pequenas */
+    display: table-cell; /* Exibir cada célula como célula de tabela */
+    padding: 5px; /* Espaçamento interno menor */
+  }
+}
+
+@media (max-width: 576px) {
+  #blue-table-cadastro-auxiliar-print td {
+    width: auto; /* Largura automática para cada célula em telas muito pequenas */
+    display: table-cell; /* Exibir cada célula como célula de tabela */
+    padding: 5px; /* Espaçamento interno menor */
+    font-size: 12px; /* Tamanho de fonte menor */
+  }
+}
+
+#line-blue-table-print{
+border: 1px solid #000000;  
+  }
+
+#colun-blue-table-print{
+border: 1px solid #000000;
+  }
+
+#blue-title-listar-print{
+  background-color: #f0f0f5; /* Cor do fundo do texto */
+  padding: 5px;
+  color: #33334d; /* Cor do texto */
+  font-size: 15px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  margin-top: 0.5px; /* Margem superior */
+  border: 1px solid #000000; /* Borda sólida */
+  text-align: center; /* Alinhamento central do texto */
+}
+
+#blue-input-cdst-print{
+  width: 100%; /* Define a largura como 100% do contêiner */
+  padding: 5px;
+  background-color: transparent; /* Define o fundo como transparente */
+  outline: none; /* Remove a borda de foco padrão */
+  color: #33334d; /* Define a cor do texto */
+  text-align: center; /* Centraliza o texto */
+  font-size: 14px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+  border: 1px solid; /* Define a borda */
+  margin-top: 2%; /* Adiciona uma margem superior de 1% */
+  border-top-color: transparent; /* Remove a cor da borda superior */
+  border-left-color: transparent; /* Remove a cor da borda esquerda */
+  border-right-color: transparent; /* Remove a cor da borda direita */
+  border-bottom-color: #000000; /* Define a cor da borda inferior */
+}
+
+
+/* Estilo para o botão de impressão */
+#blue-btn-print {
+  margin-left: 40%; /* Margem à esquerda */
+  width: 15%; /* Largura do botão */
+  outline: none; /* Remover contorno ao focar */
+  color: #005ce6; /* Cor do texto */
+  border: 1px solid #005ce6; /* Borda sólida */
+  background-color: #ffffff; /* Cor de fundo */
+  font-size: 13pt; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  transition: background-color ease 0.7s; /* Transição suave de cor de fundo */
+}
+
+/* Estilo de hover para o botão de impressão */
+#blue-btn-print:hover {
+  background-color: #005ce6; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+  opacity: 0.7; /* Opacidade ao passar o mouse */
+}
+
+/* Estilo para o botão de impressão de log de transferência */
+#btn-blue-print-log-transferencia {
+  background-color: transparent; /* Cor de fundo transparente */
+  border: none; /* Sem borda */
+  font-size: 10px; /* Tamanho da fonte */
+  color: #005ce6; /* Cor do texto */
+  margin-top: 5px; /* Margem superior */
+  margin-left: 68px; /* Margem à esquerda */
+}
+
+  /* Estilo para container do rodapé da página */
+#footer-page {
+  background-color: transparent;
+  padding: 5px; /* Adiciona padding para espaçamento interno */
+  margin-top: 4%; /* Adiciona uma margem superior de 4% */
+  margin-bottom: 0; /* Remove a margem inferior */
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Define a largura como 100% do contêiner */
+}
+
+/* Estilo para grupo de texto no rodapé da página */
+#group-text-footer {
+  color: #005ce6; /* Define a cor do texto */
+  font-size: 12px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+}
+
+/* Estilo para ícones no rodapé da página */
+#group-icon-footer {
+  color: #005ce6; /* Define a cor do texto */
+  font-size: 12px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+  #footer-page {
+    text-align: center; /* Centraliza o texto em telas menores */
+    padding: 10px 5%; /* Ajusta o padding para telas menores */
+  }
+  
+  #group-text-footer {
+    font-size: 10px; /* Reduz o tamanho da fonte em telas menores */
+  }
+  
+  #group-icon-footer {
+    font-size: 10px; /* Reduz o tamanho da fonte em telas menores */
+  }
+}
+
+@media (max-width: 576px) {
+  #footer-page {
+    padding: 10px 2%; /* Ajusta o padding para telas muito pequenas */
+  }
+  
+#group-text-footer {
+    font-size: 8px; /* Reduz ainda mais o tamanho da fonte em telas muito pequenas */
+  }
+  
+#group-icon-footer {
+    font-size: 8px; /* Reduz ainda mais o tamanho da fonte em telas muito pequenas */
+  }
+}
